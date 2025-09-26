@@ -6,6 +6,7 @@ public class RoleRepository : IRoleRepository
 {
     private readonly DataContext _context;
 
+    // ------ constructor for Role repository -----
     public RoleRepository(DataContext context)
     {
         _context = context;
