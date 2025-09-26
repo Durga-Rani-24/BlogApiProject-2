@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace BlogApiProject.Application.Employees.Dto
+namespace BlogApiProject.Application.Employees.Dto;
+
+public class LoginDto
 {
-    public class LoginDto
-    {
+    [Required(ErrorMessage ="Username or Email is Required")]
+    public string Email { get; set; } = string.Empty;
 
-    }
+    [Required(ErrorMessage = "Password is Required")]
+    [DataType(DataType.Password)]
+    public string Password { get; set; } = string.Empty;
+
 }

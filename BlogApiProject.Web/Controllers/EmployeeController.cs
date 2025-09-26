@@ -31,4 +31,18 @@ public class EmployeeController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Post(LoginDto input)
+    {
+        try
+        {
+            var response = await _employeeApplication.LoginAsync(input);
+            return Ok(new { message = "Login successful", data = response });
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(new { error = ex.Message });
+        }
+    }
 }

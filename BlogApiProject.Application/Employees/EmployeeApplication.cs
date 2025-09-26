@@ -34,7 +34,21 @@ namespace BlogApiProject.Application.Employees
             var response = await _employeeRepository.CreateEmployee(employee);
             return response.Id;
         }
-              
-              
+
+        public async Task<LoginResponseDto> LoginAsync(LoginDto dto)
+        {
+            var user = await _employeeRepository.LoginAsync(dto.Email, dto.Password);
+
+            if (user == null)
+                throw new Exception("Invalid Username/email or password");
+
+            return new LoginResponseDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+
+            };
+        }
     }
 }
