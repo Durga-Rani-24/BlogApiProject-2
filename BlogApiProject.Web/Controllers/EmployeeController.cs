@@ -1,10 +1,9 @@
 ﻿using BlogApiProject.Application.Employees;
 using BlogApiProject.Application.Employees.Dto;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BlogApiProject.Web.Controllers;
-
-
 
 
 [Route("api/[controller]")]
@@ -12,10 +11,12 @@ namespace BlogApiProject.Web.Controllers;
 public class EmployeeController : ControllerBase
 {
     private readonly IEmployeeApplication _employeeApplication;
+    private readonly IConfiguration _configuration;
 
-    public EmployeeController(IEmployeeApplication employeeApplication)
+    public EmployeeController(IEmployeeApplication employeeApplication, IConfiguration configuration)
     {
         _employeeApplication = employeeApplication;
+        _configuration = configuration;
     }
 
     [HttpPost]
@@ -38,6 +39,10 @@ public class EmployeeController : ControllerBase
         try
         {
             var response = await _employeeApplication.LoginAsync(input);
+
+            var jwtSetting = _configuration.GetSection("Jwt");
+            var key = new SymmetricSecurityKey(Encoding.UTF )
+
             return Ok(new { message = "Login successful", data = response });
         }
         catch (Exception ex)

@@ -1,6 +1,4 @@
-﻿
-
-using BlogApiProject.Domain;
+﻿using BlogApiProject.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApiProject.Data.Employees;

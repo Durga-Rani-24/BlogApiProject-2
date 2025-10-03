@@ -5,9 +5,9 @@ namespace BlogApiProject.Data.Roles;
 public class RoleRepository : IRoleRepository
 {
     private readonly DataContext _context;
-
-    // ------ constructor for Role repository -----
+    
     // ------ constructor for Role repository2 -----
+    // ------ constructor for Role repository8 -----
     public RoleRepository(DataContext context)
     {
         _context = context;
