@@ -1,8 +1,9 @@
 using BlogApiProject.Application.Employees;
+using BlogApiProject.Application.Roles;
 using BlogApiProject.Data;
 using BlogApiProject.Data.Employees;
+using BlogApiProject.Data.Roles;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ option.UseSqlServer(connection));
 
 builder.Services.AddScoped<IEmployeeApplication, EmployeeApplication>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IRoleApplication, RoleApplication>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
 builder.Services.AddSwaggerGen();
 

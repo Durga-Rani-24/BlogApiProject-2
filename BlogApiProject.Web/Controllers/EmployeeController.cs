@@ -4,9 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApiProject.Web.Controllers;
 
-
-
-
 [Route("api/[controller]")]
 [ApiController]
 public class EmployeeController : ControllerBase

@@ -9,6 +9,11 @@ namespace BlogApiProject.Data.Roles
 {
     public interface IRoleRepository
     {
-        Task<Role?> GetById(int id);   
+        Task<Role> CreateRole(Role role);        
+        Task<Role?> GetById(int id);
+        Task<List<Role>> GetAllRoles();
+        Task UpdateRole(int id, Role role);
+        Task DeleteRole(int id);
+
     }
 }
