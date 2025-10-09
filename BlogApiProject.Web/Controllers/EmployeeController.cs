@@ -1,5 +1,6 @@
 ﻿using BlogApiProject.Application.Employees;
 using BlogApiProject.Application.Employees.Dto;
+using BlogApiProject.Application.Roles.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApiProject.Web.Controllers;
@@ -27,5 +28,29 @@ public class EmployeeController : ControllerBase
         {
             return BadRequest(ex.Message);
         }
+    }
+
+    [HttpPut("{id}")]
+    public async Task Put(int id, UpdateEmployeeDto input)
+    {
+        await _employeeApplication.UpdateEmployee(id, input);
+    }
+
+    [HttpGet]
+    public async Task<List<EmployeeDto>> GetAllEmployees()
+    {
+        return await _employeeApplication.GetAllEmployees();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<EmployeeDto> GetById(int id)
+    {
+        return await _employeeApplication.GetById(id);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task DeleteEmployee(int id)
+    {
+        await _employeeApplication.DeleteEmployee(id);
     }
 }

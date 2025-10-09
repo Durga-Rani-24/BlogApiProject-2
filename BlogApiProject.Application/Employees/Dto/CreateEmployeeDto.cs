@@ -19,7 +19,7 @@ namespace BlogApiProject.Application.Employees.Dto
 
         [Required(ErrorMessage ="Password is Required")]
         [StringLength(100, MinimumLength = 6,
-            ErrorMessage ="Password must be atleast 6 characters long")]
+        ErrorMessage ="Password must be atleast 6 characters long")]
         public string Password {  get; set; }
 
         [Required(ErrorMessage = "ConfirmPassword is Required")]
